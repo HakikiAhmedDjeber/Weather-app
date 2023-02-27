@@ -24,17 +24,17 @@
   <body>
     <div class="title">Weather</div>
     <div class="info">
-      <div id="deg">19</div>
+      <div id="deg">c</div>
       <div class="city-info">
-        <div id="city">Sidi Bel Abbes</div>
-        <div id="time">2023-02-26 23:15</div>
+        <div id="city">City Name</div>
+        <div id="time">Date and Time</div>
       </div>
       <div id="stat">
         <img
           src="http://cdn.weatherapi.com/weather/64x64/night/116.png"
           alt=""
         />
-        <span>cloudy</span>
+        <span>Condition</span>
       </div>
     </div>
     <div class="search">
@@ -43,11 +43,19 @@
         <i class="fa-solid fa-magnifying-glass"></i>
       </div>
       <ul class="cities">
-        <li value="sidi bel abbes">Sidi Bel Abbes</li>
-        <li value="Oran">Oran</li>
-        <li value="Algeria">Alger</li>
-        <li value="London">London</li>
+        <li city="sidi bel abbes">Sidi Bel Abbes</li>
+        <li city="Oran">Oran</li>
+        <li city="Algeria">Alger</li>
+        <li city="London">London</li>
       </ul>
+      <div class="details">
+        <h3>weather Details</h3>
+        <ul>
+          <li>Cloudy<span>0%</span></li>
+          <li>Humidity<span>0%</span></li>
+          <li>Wind<span>0Km/H</span></li>
+        </ul>
+      </div>
     </div>
     <script src="./Script/main.js"></script>
   </body>

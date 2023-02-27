@@ -6,7 +6,8 @@ const time = document.getElementById("time");
 const icon = document.querySelector("#stat img");
 const statDesc = document.querySelector("#stat span");
 const citiesList = document.querySelectorAll(".cities li");
-
+const weatherDetails = document.querySelectorAll(".search .details ul span");
+let dayOrNight;
 // call the Api
 let apiResult = null;
 search.addEventListener("keypress", (ev) => {
@@ -19,6 +20,13 @@ searchLoop.addEventListener("click", () => {
     callApi(search.value);
   }
 });
+citiesList.forEach((ele) => {
+  ele.addEventListener("click", () => {
+    callApi(ele.getAttribute("city"));
+    search.value = ele.getAttribute("city");
+  });
+});
+// call the api and get response
 function callApi(city) {
   fetch(
     `http://api.weatherapi.com/v1/current.json?key=99a55af09f3148108e2214129232602&q=${city}&aqi=no`
@@ -31,6 +39,7 @@ function callApi(city) {
     })
     .catch((error) => console.error(error));
 }
+// get the data from api and set it into the page
 function setData() {
   deg.innerText = apiResult.current.temp_c;
   city.innerText = apiResult.location.name;
@@ -40,12 +49,22 @@ function setData() {
   statDesc.innerText = apiResult.current.condition.text;
   let condition = apiResult.current.condition.text;
   console.log(condition);
+  apiResult.current.is_day === 1
+    ? (dayOrNight = "day")
+    : (dayOrNight = "night");
   if (condition.includes("cloud"))
-    document.body.style.backgroundImage = "url('./images/cloud.jpg')";
-  else if (condition.includes("sun") || condition.includes("lear"))
-    document.body.style.backgroundImage = "url('./images/sun.jpg')";
+    document.body.style.backgroundImage =
+      "url('./images/" + dayOrNight + "/cloud.jpg')";
+  else if (condition.includes("un") || condition.includes("lear"))
+    document.body.style.backgroundImage =
+      "url('./images/" + dayOrNight + "/clear.jpg')";
   else if (condition.includes("rain"))
-    document.body.style.backgroundImage = "url('./images/rain.jpg')";
+    document.body.style.backgroundImage =
+      "url('./images/" + dayOrNight + "/rain.jpg')";
   else if (condition.includes("now"))
-    document.body.style.backgroundImage = "url('./images/snow.jpg')";
+    document.body.style.backgroundImage =
+      "url('./images/" + dayOrNight + "/snow.jpg')";
+  weatherDetails[0].innerText = apiResult.current.cloud + "%";
+  weatherDetails[1].innerText = apiResult.current.humidity + "%";
+  weatherDetails[2].innerText = apiResult.current.wind_kph + "km/h";
 }
