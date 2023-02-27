@@ -29,7 +29,7 @@ citiesList.forEach((ele) => {
 // call the api and get response
 function callApi(city) {
   fetch(
-    `http://api.weatherapi.com/v1/current.json?key=99a55af09f3148108e2214129232602&q=${city}&aqi=no`
+    `https://api.weatherapi.com/v1/current.json?key=99a55af09f3148108e2214129232602&q=${city}&aqi=no`
   )
     .then((response) => response.json())
     .then((data) => {
@@ -45,7 +45,7 @@ function setData() {
   city.innerText = apiResult.location.name;
   let date = new Date(apiResult.current.last_updated);
   time.innerText = date.toLocaleString("UK");
-  icon.src = `http:${apiResult.current.condition.icon}`;
+  icon.src = `https:${apiResult.current.condition.icon}`;
   statDesc.innerText = apiResult.current.condition.text;
   let condition = apiResult.current.condition.text;
   console.log(condition);
