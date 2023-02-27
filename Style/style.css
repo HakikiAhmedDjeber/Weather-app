@@ -134,9 +134,46 @@ a {
   cursor: pointer;
   border-bottom: 1px solid;
 }
-.search .details {padding: 20px;}
-.search .details h3 {padding: 10px 0;border-bottom: 1px solid;}
-.search .details ul {
+.search .details {
+  padding: 20px;
 }
-.search .details ul li {padding: 20px 0;display: flex;justify-content: space-between;}
-.search .details ul span {font-size: 1.1em;font-weight: bold;}
+.search .details h3 {
+  padding: 10px 0;
+  border-bottom: 1px solid;
+}
+.search .details ul li {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.search .details ul span {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+@media (max-width: 800px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  .search .details ul li {
+    padding: 10px 0;
+  }
+  .search .cities {
+    gap: 10px;
+  }
+  .info #city {
+    font-size: 1.5em;
+  }
+  .info #time {
+    font-size: 1em;
+  }
+  .info #deg {
+    font-size: 3em;
+  }
+  .title {
+    padding: 10px;
+  }
+  .info {
+    padding: 10px;
+  }
+}
