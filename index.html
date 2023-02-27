@@ -21,5 +21,34 @@
       rel="stylesheet"
     />
   </head>
-  <body></body>
+  <body>
+    <div class="title">Weather</div>
+    <div class="info">
+      <div id="deg">19</div>
+      <div class="city-info">
+        <div id="city">Sidi Bel Abbes</div>
+        <div id="time">2023-02-26 23:15</div>
+      </div>
+      <div id="stat">
+        <img
+          src="http://cdn.weatherapi.com/weather/64x64/night/116.png"
+          alt=""
+        />
+        <span>cloudy</span>
+      </div>
+    </div>
+    <div class="search">
+      <div class="search-bar">
+        <input type="search" placeholder="City..." id="search" />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <ul class="cities">
+        <li value="sidi bel abbes">Sidi Bel Abbes</li>
+        <li value="Oran">Oran</li>
+        <li value="Algeria">Alger</li>
+        <li value="London">London</li>
+      </ul>
+    </div>
+    <script src="./Script/main.js"></script>
+  </body>
 </html>
